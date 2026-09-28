@@ -49,7 +49,8 @@ const Footer = () => {
               />
               <div className="contact-meta">
                 <span className="contact-label">Zadzwoń do nas </span>
-                <span className="contact-value">+48 721 505 600</span>
+                <span className="contact-value">Maciej +48 721 505 600
+                  Oskar +48 516 624 665</span>
               </div>
             </a>
 
