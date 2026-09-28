@@ -1,0 +1,60 @@
+.music-control-wrapper {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 9999; /* Zawsze na wierzchu */
+  /* Usunięto ukrywanie - element wyświetla się normalnie od razu */
+}
+
+.music-toggle-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.music-toggle-btn:hover {
+  transform: scale(1.1);
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Subtelne pulsowanie, kiedy muzyka gra */
+.music-toggle-btn.playing {
+  animation: musicPulse 2s infinite;
+}
+
+@keyframes musicPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(0, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+/* --- RESPONSYWNOŚĆ --- */
+@media (max-width: 768px) {
+  .music-control-wrapper {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .music-toggle-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+}

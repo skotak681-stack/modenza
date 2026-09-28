@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+
+:root {
+  --font-primary: "Inter", sans-serif;
+  --font-heading: "Cormorant Garamond", serif;
+}
+
+.why-us-section {
+  width: 100%;
+}
+
+/* Biały nagłówek */
+.why-us-header {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 20, 22, 0.95) 0%,
+    rgba(35, 35, 40, 0.98) 50%,
+    rgba(20, 20, 22, 0.95) 100%
+  );
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.why-us-title {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  color: #000; /* Czarny tekst na białym tle */
+  text-align: center;
+}
+
+/* Sekcja z tłem (pod nagłówkiem) */
+.why-us-body {
+  position: relative;
+  width: 100%;
+  padding: 6rem 2rem;
+  background-image: url("https://res.cloudinary.com/doqdbxxis/image/upload/v1779012586/bg_wxg3iv.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.why-us-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.why-us-container {
+  max-width: 800px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.why-us-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.why-us-content p {
+  font-family: var(--font-primary);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* --- RESPONSYWNOŚĆ --- */
+/* Pulpitowy układ (do 1200px) zachowany w 100% bez zmian */
+
+@media (max-width: 768px) {
+  .why-us-header {
+    padding: 3rem 1.5rem;
+  }
+
+  .why-us-title {
+    font-size: 2.5rem;
+  }
+
+  .why-us-body {
+    padding: 4rem 1.5rem; /* Zmniejszenie ogromnych paddingów dla telefonów */
+  }
+
+  .why-us-content p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .why-us-title {
+    font-size: 2rem; /* Jeszcze mniejszy tytuł, by nie zawijał się brzydko na wąskich ekranach */
+  }
+
+  .why-us-body {
+    padding: 3rem 1.2rem;
+  }
+
+  .why-us-content p {
+    font-size: 1.05rem;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .why-us-body {
+    background-position: center;
+    background-attachment: fixed;
+  }
+}

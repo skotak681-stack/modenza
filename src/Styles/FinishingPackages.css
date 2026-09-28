@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+
+:root {
+  --font-primary: "Inter", sans-serif;
+  --font-heading: "Cormorant Garamond", serif;
+}
+
+.packages-section {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 20, 22, 0.95) 0%,
+    rgba(35, 35, 40, 0.98) 50%,
+    rgba(20, 20, 22, 0.95) 100%
+  );
+  padding: 0rem 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
+.packages-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+}
+
+.packages-header {
+  text-align: center;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+}
+
+.section-subtitle {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  font-weight: 400; /* Pogrubione jak prosiłeś */
+  color: #444;
+  margin: 0;
+}
+
+/* --- KARTY (SZARE TŁO, GRUBE RAMKI) --- */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  margin-top: 3em;
+}
+
+.package-card {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 20, 22, 0.95) 0%,
+    rgba(35, 35, 40, 0.98) 50%,
+    rgba(20, 20, 22, 0.95) 100%
+  );
+  border: 25px solid #a9b0b4; /* GRUBE RAMKI */
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.4s ease;
+}
+
+.package-divider {
+  width: 240px;
+  background-color: white;
+  height: 3px;
+  margin: 1.5em;
+}
+
+.package-name {
+  font-family: var(--font-heading); /* Tytułowa */
+  font-weight: 700; /* MOCNO POGRUBIONE */
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+}
+
+.package-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.package-features li {
+  font-family: var(--font-primary); /* Podstawowa */
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600; /* MOCNO POGRUBIONE */
+  color: white;
+}
+
+/* --- PRZYCISK PDF (POWIĘKSZONY) --- */
+.packages-footer {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.pdf-button-premium {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: linear-gradient(
+    90deg,
+    rgba(20, 20, 22, 0.95) 0%,
+    rgba(35, 35, 40, 0.98) 50%,
+    rgba(20, 20, 22, 0.95) 100%
+  );
+  color: white;
+  border: 5px solid #a9b0b4;
+  border-radius: 18px;
+  padding: 1.2rem 3rem;
+  font-size: 1.1rem;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+  transform: scale(0.85);
+}
+
+/* --- RESPONSYWNOŚĆ --- */
+/* Zmiany zaczynają się dopiero, gdy layout fizycznie przestałby się mieścić. */
+
+@media (max-width: 992px) {
+  .packages-grid {
+    grid-template-columns: 1fr; /* Przechodzimy na jedną kolumnę, aby karty miały czym oddychać */
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .packages-section {
+    padding: 2rem 1rem; /* Zmniejszamy boczne marginesy głównej sekcji na telefonie */
+  }
+
+  .section-title {
+    font-size: 2.5rem; /* Skalujemy nagłówek, żeby nie wychodził poza ekran */
+  }
+
+  .package-card {
+    border-width: 15px; /* Zwężamy ramki, tak jak zaproponowałeś */
+    padding: 2rem 1.5rem; /* Zmniejszamy wewnętrzny padding kart */
+  }
+
+  .package-name {
+    font-size: 2rem; /* Delikatnie mniejszy tytuł pakietu */
+  }
+
+  .package-divider {
+    width: 150px; /* Krótsza kreska dzieląca, by pasowała do węższego ekranu */
+  }
+
+  .package-features li {
+    font-size: 1.1rem;
+  }
+}

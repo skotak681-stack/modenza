@@ -1,0 +1,259 @@
+.adv-section {
+  background-color: var(
+    --color-bg-light
+  ); /* Używamy jasnego szarego z globalnych by oddzielić od białych sekcji */
+  padding: 8rem 2rem;
+  color: var(--color-text-black);
+}
+
+.adv-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- NAGŁÓWEK --- */
+.adv-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.adv-subtitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--color-text-gray);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.adv-title {
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 300;
+}
+
+/* --- SIATKA: DLACZEGO MODENZA --- */
+.adv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 6rem;
+}
+
+.adv-card {
+  background: var(--color-bg-white);
+  padding: 2.5rem 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.adv-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.adv-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1.5rem;
+  background: var(--color-bg-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-black);
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.adv-card:hover .adv-icon-wrapper {
+  background: var(--color-text-black);
+  color: var(--color-bg-white);
+}
+
+.adv-icon-wrapper svg {
+  width: 30px;
+  height: 30px;
+}
+
+.adv-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-text-black);
+}
+
+/* --- SPLIT SECTION (Co otrzymujesz & Czas) --- */
+.adv-split-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  background: var(--color-bg-white);
+  padding: 4rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+}
+
+.split-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.split-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-gray);
+  margin-bottom: 2.5rem;
+}
+
+/* Lista Co otrzymujesz */
+.deliverables-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.deliverables-list li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.check-circle {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  background: var(--color-text-black);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-circle svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Oś Czasu (Timeline) */
+.timeline-container {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2rem;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  background: var(--color-text-black);
+  border-radius: 50%;
+  border: 3px solid var(--color-bg-white);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-time {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: white;
+  background: var(--gradient-black);
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-step-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-step-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-gray);
+}
+
+.timeline-summary {
+  background: var(--color-bg-light);
+  padding: 1.5rem;
+  border-radius: 6px;
+  border-left: 3px solid var(--color-text-black);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--color-text-gray);
+}
+
+/* --- ANIMACJE (Zapożyczone) --- */
+.reveal-on-scroll {
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform, opacity;
+}
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+.fade-in-up {
+  transform: translateY(40px);
+  transition:
+    opacity var(--transition-smooth),
+    transform var(--transition-smooth);
+}
+.fade-in-up.is-visible {
+  transform: translateY(0);
+}
+.delay-1 {
+  transition-delay: 0.1s;
+}
+.delay-2 {
+  transition-delay: 0.2s;
+}
+.delay-3 {
+  transition-delay: 0.3s;
+}
+.delay-4 {
+  transition-delay: 0.4s;
+}
+.delay-5 {
+  transition-delay: 0.5s;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .adv-split-section {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+}

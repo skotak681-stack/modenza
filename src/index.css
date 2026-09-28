@@ -1,0 +1,126 @@
+/* --- IMPORT CZCIONKI --- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* --- ZMIENNE GLOBALNE --- */
+:root {
+  /* Kolory podstawowe */
+  --color-bg-white: #ffffff;
+  --color-bg-light: #fafafa;
+  --color-text-black: #111111;
+  --color-text-white: #ffffff;
+  --color-text-gray: #555555;
+  --color-text-gray-light: #cccccc;
+
+  /* Gradienty */
+  --gradient-black: linear-gradient(135deg, #000000 0%, #333333 100%);
+  --gradient-black-overlay: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  --gradient-text-dark: linear-gradient(90deg, #111111 0%, #777777 100%);
+  --gradient-text-light: linear-gradient(90deg, #ffffff 0%, #aaaaaa 100%);
+
+  /* Animacje i przejścia */
+  --transition-smooth: 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-fast: 0.3s ease;
+}
+
+/* --- RESET CSS I USTAWIENIA BAZOWE --- */
+html {
+  scroll-behavior: smooth; /* Zapewnia płynne przesuwanie po kliknięciu w linki nawigacji */
+  font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", "Helvetica Neue", sans-serif;
+  background-color: var(--color-bg-white);
+  color: var(--color-text-black);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Zapobiega poziomemu przewijaniu */
+}
+
+/* --- GLOBALNA TYPOGRAFIA --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* --- GLOBALNE KLASY UŻYTKOWE (OPCJONALNIE) --- */
+/* Niewidoczny pasek przewijania dla efektu premium (działa w Chrome/Safari/Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999999;
+}
+
+/* Zabezpieczenie na wypadek zaznaczania tekstu - czarne tło, biały tekst */
+::selection {
+  background-color: var(--color-text-black);
+  color: var(--color-text-white);
+}
+
+.bg-silver {
+  /* Klucz to mieszanka odcieni: lekko niebieskawy cień i jasny, srebrzysty połysk */
+  background: linear-gradient(
+    135deg,
+    #b0b5ba 0%,
+    /* Ciemniejszy, chłodny metal */ #dcdde0 40%,
+    /* Główny srebrny korpus */ #f8f9fa 50%,
+    /* Ostre, jasne "odbicie światła" na metalu */ #dcdde0 60%,
+    /* Powrót do srebrnego korpusu */ #b0b5ba 100%
+      /* Ciemniejszy, chłodny metal */
+  );
+
+  /* Animacja sprawi, że "odbicie" będzie wędrować po powierzchni, jak przy obracaniu laptopa */
+  background-size: 300% 300%;
+  animation: shimmer-silver 10s infinite linear;
+}
+
+@keyframes shimmer-silver {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}

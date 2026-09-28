@@ -1,0 +1,307 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+
+:root {
+  --font-primary: "Inter", sans-serif;
+  --font-heading: "Cormorant Garamond", serif;
+}
+
+.modern-page {
+  background-color: #ffffff;
+  width: 100%;
+}
+
+/* --- HERO --- */
+.modern-hero {
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.modern-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2000");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-zoom-anim {
+  animation: heroZoom 20s linear infinite alternate;
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.15);
+  }
+}
+
+.modern-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.modern-hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 0 2rem;
+}
+
+.modern-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.modern-hero-subtitle {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  opacity: 0.8;
+  letter-spacing: 0.1em;
+}
+
+/* --- ANIMACJE SCROLLOWANIA (REVEAL) --- */
+.modern-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.modern-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- CONTENT --- */
+.modern-content-section {
+  padding: 0 2rem 8rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.modern-container {
+  max-width: 1100px;
+  width: 100%;
+  margin-top: -80px;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* KARTA SPECYFIKACJI (POWRÓT DO 2 KOLUMN) */
+.modern-main-card {
+  background-color: #fbfbfb;
+  border: 25px solid #000000;
+  border-radius: 16px;
+  padding: 3.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.modern-cat-title {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+}
+
+.modern-divider {
+  width: 60px;
+  height: 2px;
+  background: #000;
+  margin: 1.5rem 0;
+}
+
+.modern-cat-desc {
+  font-family: var(--font-primary);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* GALERIA WEWNĄTRZ KARTY */
+.modern-card-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.modern-card-img-wrapper {
+  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* --- GALERIE ZDJĘĆ POMIĘDZY KARTAMI --- */
+.modern-between-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Podstawa to zawsze 2 kolumny */
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.modern-between-img-wrapper {
+  height: 350px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* MAGICZNY SELEKTOR - jeśli element w galerii jest nieparzysty i jednocześnie jest ostatni 
+(czyli np. 3, 5, 7 element), nadpisuje zasady: układa się na 2/3 szerokości i centruje */
+.modern-between-img-wrapper:last-child:nth-child(odd) {
+  grid-column: 1 / -1; /* Rozciąga kolumnę od krawędzi do krawędzi */
+  width: 66.666%; /* Ustawia fizyczną szerokość wrappera na 2/3 */
+  margin: 0 auto; /* Centruje w ramach swojej nowej przestrzeni */
+}
+
+/* WSPÓLNE ZACHOWANIE OBRAZKÓW */
+.modern-card-img-wrapper img,
+.modern-between-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.modern-card-img-wrapper:hover img,
+.modern-between-img-wrapper:hover img {
+  transform: scale(1.08);
+}
+
+/* --- LIGHTBOX (MODAL ZDJĘĆ) --- */
+.modern-lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: modernFadeInOverlay 0.3s forwards ease-in-out;
+}
+
+.modern-lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: modernZoomInImage 0.4s 0.1s forwards
+    cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+.modern-lightbox-img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  display: block;
+}
+
+.modern-lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2.5rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.modern-lightbox-close:hover {
+  color: #aaaaaa;
+}
+
+@keyframes modernFadeInOverlay {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modernZoomInImage {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* RESPONSYWNOŚĆ */
+@media (max-width: 992px) {
+  .modern-main-card {
+    grid-template-columns: 1fr;
+    padding: 3rem 2rem;
+    gap: 2.5rem;
+  }
+  .modern-between-img-wrapper {
+    height: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modern-main-card {
+    border-width: 15px;
+    padding: 2.5rem 1.5rem;
+  }
+  .modern-cat-title {
+    font-size: 2.2rem;
+  }
+  .modern-divider {
+    margin: 1.5rem auto;
+  }
+  .modern-info {
+    text-align: center;
+  }
+
+  /* Na telefonach rozbijamy siatki na 1 kolumnę */
+  .modern-card-gallery,
+  .modern-between-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .modern-between-img-wrapper {
+    height: 250px;
+  }
+
+  /* Resetujemy nasz centrowany element na mobile, by miał 100% szerokości tak jak reszta */
+  .modern-between-img-wrapper:last-child:nth-child(odd) {
+    width: 100%;
+  }
+
+  .modern-lightbox-close {
+    top: -50px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+}

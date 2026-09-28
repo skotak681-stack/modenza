@@ -1,0 +1,298 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600;700&display=swap");
+
+:root {
+  --font-primary: "Inter", sans-serif;
+  --font-heading: "Cormorant Garamond", serif;
+}
+
+.spec-page {
+  background-color: #ffffff;
+  width: 100%;
+}
+
+/* --- HERO --- */
+.spec-hero {
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.spec-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2000");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-zoom-anim {
+  animation: heroZoom 20s linear infinite alternate;
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.15);
+  }
+}
+
+.spec-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.spec-hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 0 2rem;
+}
+
+.spec-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.spec-hero-subtitle {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  opacity: 0.8;
+  letter-spacing: 0.1em;
+}
+
+/* --- ANIMACJE SCROLLOWANIA (REVEAL) --- */
+.spec-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.spec-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- CONTENT --- */
+.spec-content-section {
+  padding: 0 2rem 8rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.spec-container {
+  max-width: 1100px;
+  width: 100%;
+  margin-top: -80px;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* KARTA SPECYFIKACJI */
+.spec-main-card {
+  background-color: #fbfbfb;
+  border: 25px solid #000000;
+  border-radius: 16px;
+  padding: 3.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.spec-cat-title {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+}
+
+.spec-divider {
+  width: 60px;
+  height: 2px;
+  background: #000;
+  margin: 1.5rem 0;
+}
+
+.spec-cat-desc {
+  font-family: var(--font-primary);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* --- WYMUSZONA SIATKA GALERII (Zawsze 2 kolumny) --- */
+.spec-card-gallery,
+.spec-between-gallery {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.spec-card-img-wrapper {
+  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.spec-between-img-wrapper {
+  height: 350px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* Magiczny selektor na nieparzysty element (wyśrodkowanie na 2/3 szerokości) */
+.spec-between-img-wrapper:last-child:nth-child(odd) {
+  grid-column: 1 / -1 !important;
+  width: 66.666% !important;
+  margin: 0 auto !important;
+}
+
+/* Wspólne zachowanie obrazków */
+.spec-card-img-wrapper img,
+.spec-between-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.spec-card-img-wrapper:hover img,
+.spec-between-img-wrapper:hover img {
+  transform: scale(1.08);
+}
+
+/* --- LIGHTBOX (MODAL ZDJĘĆ) --- */
+.spec-lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: specFadeInOverlay 0.3s forwards ease-in-out;
+}
+
+.spec-lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: specZoomInImage 0.4s 0.1s forwards
+    cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+.spec-lightbox-img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  display: block;
+}
+
+.spec-lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2.5rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.spec-lightbox-close:hover {
+  color: #aaaaaa;
+}
+
+@keyframes specFadeInOverlay {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes specZoomInImage {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* RESPONSYWNOŚĆ */
+@media (max-width: 992px) {
+  .spec-main-card {
+    grid-template-columns: 1fr;
+    padding: 3rem 2rem;
+    gap: 2.5rem;
+  }
+  .spec-between-img-wrapper {
+    height: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .spec-main-card {
+    border-width: 15px;
+    padding: 2.5rem 1.5rem;
+  }
+  .spec-cat-title {
+    font-size: 2.2rem;
+  }
+  .spec-divider {
+    margin: 1.5rem auto;
+  }
+  .spec-info {
+    text-align: center;
+  }
+  .spec-between-img-wrapper {
+    height: 250px;
+  }
+  .spec-lightbox-close {
+    top: -50px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+
+@media (max-width: 576px) {
+  /* Dopiero na małych ekranach telefonów zgniatamy układ galerii do 1 kolumny */
+  .spec-card-gallery,
+  .spec-between-gallery {
+    grid-template-columns: 1fr !important;
+  }
+
+  .spec-between-img-wrapper:last-child:nth-child(odd) {
+    width: 100% !important;
+  }
+}

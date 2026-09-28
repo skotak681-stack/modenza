@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+
+:root {
+  --font-primary: "Inter", sans-serif;
+  --font-heading: "Cormorant Garamond", serif;
+}
+
+.for-whom-section {
+  width: 100%;
+}
+
+/* Biały nagłówek */
+.fw-header {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 20, 22, 0.95) 0%,
+    rgba(35, 35, 40, 0.98) 50%,
+    rgba(20, 20, 22, 0.95) 100%
+  );
+  padding-bottom: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hiw-title {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  color: #000;
+  text-align: center;
+}
+
+/* Sekcja ze zdjęciem (pod nagłówkiem) */
+.fw-body {
+  position: relative;
+  width: 100%;
+  padding: 6rem 2rem;
+  background-image: url("https://res.cloudinary.com/doqdbxxis/image/upload/v1779362802/img_j09vul.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fw-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.fw-container {
+  max-width: 900px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.fw-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  color: #ffffff;
+}
+
+.fw-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.fw-list li {
+  font-family: var(--font-primary);
+  font-size: 1.15rem;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: white;
+}
+
+.fw-cta {
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.cta-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.cta-desc {
+  font-family: var(--font-primary);
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+/* --- RESPONSYWNOŚĆ --- */
+/* Zmiany wchodzą tylko dla urządzeń mobilnych, desktop bez zmian */
+
+@media (max-width: 768px) {
+  .fw-body {
+    padding: 4rem 1.5rem; /* Zmniejszenie ogromnych paddingów na telefonie */
+  }
+
+  .hiw-title {
+    font-size: 2.5rem;
+  }
+
+  .fw-content {
+    gap: 2rem;
+  }
+
+  .fw-list li {
+    font-size: 1.1rem;
+  }
+
+  .cta-title {
+    font-size: 2rem; /* Skalowanie tytułu w dolnym wezwaniu do działania */
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .fw-body {
+    background-position: center;
+    background-attachment: fixed;
+  }
+}

@@ -1,0 +1,75 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px; /* Zwiększyłem wysokość, żeby zmieścić większe logo na starcie */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  /* Ultra gładkie przejście tła i cienia (1.2 sekundy z krzywą cubic-bezier) */
+  transition:
+    background 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    height 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1000;
+}
+
+/* Znajdź główną klasę swojego Navbara (np. .navbar) i dodaj/zmień to tło: */
+.navbar {
+  /* Twój obecny kod (np. position: fixed; width: 100%; top: 0; z-index: 100; itp.) */
+
+  /* --- DODANY GRAFITOWY GRADIENT OCHRONNY --- */
+  background: linear-gradient(
+    to bottom,
+    rgba(25, 25, 25, 0.85) 0%,
+    /* Ciemny grafit na samej górze */ rgba(25, 25, 25, 0.4) 50%,
+    /* Łagodne przejście w połowie Navbara */ transparent 100%
+      /* Pełna przezroczystość na dole Navbara */
+  );
+
+  /* Upewnij się, że navbar nie ma zablokowanych kliknięć pod spodem, 
+     jeśli sam kontener jest wyższy niż linki */
+  pointer-events: auto;
+}
+/* --- EFEKT PO PRZEWINIĘCIU 2/3 HERO --- */
+.navbar.scrolled {
+  height: 100px; /* Lekko zmniejsza wysokość całego paska dla smuklejszego wyglądu */
+
+  /* Elegancki grafitowy gradient CSS, który Ci się spodobał */
+  background: linear-gradient(
+    90deg,
+    rgba(20, 20, 22, 0.95) 0%,
+    rgba(35, 35, 40, 0.98) 50%,
+    rgba(20, 20, 22, 0.95) 100%
+  );
+
+  /* Dodatkowy blur pod navbarem */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-logo {
+  height: 60px; /* Zwiększona bazowa wielkość, żeby od razu rzucało się w oczy */
+  width: auto;
+  /* Super płynna, powolna animacja skalowania (1.2s) */
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center center;
+  transform: scale(2);
+}
+
+/* Powiększenie logo o równe 20% (scale 1.2) */
+.navbar.scrolled .navbar-logo {
+  transform: scale(1.5);
+}

@@ -1,0 +1,467 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+
+:root {
+  --font-primary: "Inter", sans-serif;
+  --font-heading: "Cormorant Garamond", serif;
+}
+
+.rd-page {
+  width: 100%;
+  background-color: #ffffff;
+  min-height: 100vh;
+  min-height: 100dvh; /* iOS: uwzglednia znikajacy pasek adresu Safari */
+  overflow-x: hidden; /* zabezpieczenie przed poziomym scrollem na Windowsie */
+}
+
+/* --- HERO Z KINOWA ANIMACJA --- */
+.rd-hero {
+  width: 100%;
+  height: 75vh;
+  min-height: 600px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.rd-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.hero-anim {
+  animation: cinematicZoom 25s ease-in-out infinite alternate;
+  will-change: transform; /* plynniejsza animacja na slabszych GPU (Windows) */
+  backface-visibility: hidden;
+  transform: translateZ(0); /* wymusza kompozycje na GPU */
+}
+
+/* Szanujemy ustawienie "ogranicz ruch" w systemie uzytkownika */
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim {
+    animation: none;
+  }
+}
+
+@keyframes cinematicZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+.rd-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1;
+}
+
+.rd-hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  text-align: center;
+  margin-top: -100px;
+}
+
+.rd-hero-title {
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.rd-hero-subtitle {
+  font-family: var(--font-primary);
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+}
+
+/* --- GLOWNA KARTA W RAMCE --- */
+.rd-details-section {
+  padding: 0 2rem 8rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.rd-container {
+  max-width: 1200px;
+  width: 100%;
+  margin-top: -150px;
+  position: relative;
+  z-index: 10;
+}
+
+.rd-main-card {
+  background-color: #fbfbfb;
+  border: 25px solid #000000;
+  border-radius: 16px;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* --- SIATKA PARAMETROW --- */
+.rd-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.rd-spec-box {
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.rd-spec-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.spec-label {
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.8rem;
+}
+
+.spec-value {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.1;
+}
+
+/* --- INFO LAYOUT --- */
+.rd-info-divider {
+  width: 100%;
+  height: 2px;
+  background-color: #000000;
+  opacity: 0.1;
+}
+
+.rd-info-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+}
+
+.rd-box-title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 1.5rem 0;
+}
+
+.rd-rooms-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rd-rooms-list li {
+  font-family: var(--font-primary);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #000;
+  display: flex;
+  align-items: center;
+}
+
+.rd-rooms-list li::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  margin-right: 15px;
+  flex-shrink: 0; /* kropka nie kurczy sie przy dlugim tekscie pozycji */
+}
+
+.rd-desc-text {
+  font-family: var(--font-primary);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #333;
+  margin: 0;
+}
+
+/* --- GALERIA ZDJEC DEMO --- */
+.rd-gallery-section {
+  width: 100%;
+}
+
+.rd-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.rd-gallery-item {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 8px;
+  border: 2px solid #000;
+  overflow: hidden;
+  position: relative;
+  background-color: #eee;
+  cursor: pointer; /* Kursor wskazujacy, ze mozna kliknac */
+}
+
+.rd-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.rd-gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+/* --- LIGHTBOX (MODAL ZDJEC) --- */
+.rd-lightbox-overlay {
+  position: fixed;
+  inset: 0; /* zamiast width:100vw/height:100vh - bez problemu z paskiem przewijania na Windowsie */
+  background-color: rgba(0, 0, 0, 0.85); /* Eleganckie czarne tlo */
+  z-index: 9999; /* Zawsze na wierzchu */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInOverlay 0.3s forwards ease-in-out;
+}
+
+.rd-lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  max-height: 90dvh;
+  opacity: 0;
+  transform: scale(0.9);
+  /* Krotka, gladka animacja pojawiania sie zdjecia */
+  animation: zoomInImage 0.4s 0.1s forwards
+    cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+.rd-lightbox-img {
+  max-width: 100%;
+  max-height: 85vh;
+  max-height: 85dvh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  display: block;
+}
+
+.rd-lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2.5rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.3s ease;
+  font-family: var(--font-primary);
+}
+
+.rd-lightbox-close:hover {
+  color: #aaaaaa;
+}
+
+/* Keyframes dla Lightboxa */
+@keyframes fadeInOverlay {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomInImage {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --- PRZYCISKI --- */
+.rd-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.rd-btn-primary,
+.rd-btn-secondary {
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  text-align: center;
+  cursor: pointer;
+}
+
+.rd-btn-primary {
+  background-color: #000000;
+  color: #ffffff;
+  border: 3px solid #000000;
+}
+
+.rd-btn-primary:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.rd-btn-secondary {
+  background-color: #ffffff;
+  color: #000000;
+  border: 3px solid #000000;
+}
+
+.rd-btn-secondary:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* --- RESPONSYWNOSC --- */
+@media (max-width: 992px) {
+  .rd-info-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .rd-hero {
+    height: 60vh;
+    min-height: 500px;
+  }
+  .rd-hero-title {
+    font-size: 3.5rem;
+  }
+  .rd-hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .rd-container {
+    margin-top: -100px;
+  }
+
+  .rd-main-card {
+    padding: 2.5rem 1.5rem;
+    border-width: 15px;
+    gap: 2.5rem;
+  }
+
+  .rd-gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .rd-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .rd-lightbox-close {
+    top: -50px;
+    right: 50%;
+    transform: translateX(
+      50%
+    ); /* Na malych ekranach zamykanie wysrodkowane u gory */
+  }
+}
+
+/* --- STRZALKI DO GALERII W MODALU --- */
+.rd-lightbox-prev,
+.rd-lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  border: none;
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 10001; /* Upewniamy sie, ze sa nad obrazkiem */
+}
+
+.rd-lightbox-prev:hover,
+.rd-lightbox-next:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Pozycjonowanie wzgledem okna (overlay) */
+.rd-lightbox-prev {
+  left: 25px;
+}
+
+.rd-lightbox-next {
+  right: 25px;
+}
+
+/* Dostosowanie wielkosci strzalek na telefonach */
+@media (max-width: 768px) {
+  .rd-lightbox-prev,
+  .rd-lightbox-next {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+
+  .rd-lightbox-prev {
+    left: 10px;
+  }
+
+  .rd-lightbox-next {
+    right: 10px;
+  }
+}

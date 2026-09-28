@@ -1,0 +1,328 @@
+.configurator-section {
+  background-color: var(--color-bg-white);
+  padding: 8rem 2rem;
+  color: var(--color-text-black);
+}
+
+.conf-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- NAGŁÓWEK --- */
+.conf-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.conf-subtitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--color-text-gray);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.conf-title {
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.conf-desc {
+  color: var(--color-text-gray);
+  font-weight: 300;
+}
+
+/* --- KARTY PAKIETÓW --- */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.package-card {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  background: var(--color-bg-white);
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Aktywny (wybrany) pakiet z czarnym gradientem premium */
+.package-card.is-selected {
+  border-color: transparent;
+  background: var(--color-bg-white);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Stworzenie gradientowego obramowania dla wybranej karty */
+.package-card.is-selected::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--gradient-black);
+  z-index: -1;
+  border-radius: 10px;
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gradient-black);
+  color: white;
+  padding: 0.3rem 1rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 20px;
+}
+
+.pkg-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.package-card.is-selected .pkg-header {
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+}
+
+.pkg-header h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.pkg-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-text-gray);
+  font-weight: 500;
+}
+
+.pkg-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-gray);
+  margin-bottom: 2rem;
+  min-height: 45px;
+}
+
+.pkg-features {
+  flex: 1;
+  margin-bottom: 2rem;
+}
+
+.pkg-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  font-size: 0.9rem;
+  color: var(--color-text-black);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.check-icon {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  color: #111;
+  margin-top: 2px;
+}
+
+.pkg-select-btn {
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid var(--color-text-black);
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.package-card:hover .pkg-select-btn {
+  background: #f5f5f5;
+}
+
+.package-card.is-selected .pkg-select-btn {
+  background: var(--color-text-black);
+  color: white;
+}
+
+/* --- DODATKI I WAŻNE INFO --- */
+.roof-notice {
+  background: var(--color-bg-light);
+  padding: 1.5rem;
+  border-left: 4px solid #111;
+  margin-bottom: 3rem;
+  font-size: 0.9rem;
+  color: var(--color-text-gray);
+}
+
+.addons-section {
+  margin-bottom: 4rem;
+}
+
+.addons-title {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.addons-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.addon-pill {
+  padding: 0.8rem 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.addon-pill:hover {
+  border-color: #111;
+}
+
+.addon-pill.is-active {
+  background: var(--color-text-black);
+  color: white;
+  border-color: var(--color-text-black);
+}
+
+/* --- DOLNY PASEK CENY --- */
+.price-estimation-bar {
+  background: var(--color-bg-light);
+  padding: 2.5rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.price-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-gray);
+  margin-bottom: 0.5rem;
+}
+
+.price-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.price-note {
+  font-size: 0.8rem;
+  color: var(--color-text-gray);
+}
+
+.conf-submit-btn {
+  padding: 1.2rem 2.5rem;
+}
+
+/* --- ANIMACJE (Zapożyczone z globalnych) --- */
+.reveal-on-scroll {
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform, opacity;
+}
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+.fade-in-up {
+  transform: translateY(40px);
+  transition:
+    opacity var(--transition-smooth),
+    transform var(--transition-smooth);
+}
+.fade-in-up.is-visible {
+  transform: translateY(0);
+}
+.delay-1 {
+  transition-delay: 0.1s;
+}
+.delay-2 {
+  transition-delay: 0.2s;
+}
+.delay-3 {
+  transition-delay: 0.3s;
+}
+.delay-4 {
+  transition-delay: 0.5s;
+}
+.delay-5 {
+  transition-delay: 0.7s;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .price-estimation-bar {
+    flex-direction: column;
+    text-align: center;
+  }
+  .conf-submit-btn {
+    width: 100%;
+  }
+}
+
+/* --- POPRAWKA DLA CZARNEJ KARTY (IS-SELECTED) --- */
+.package-card.is-selected {
+  background: var(--gradient-black);
+  border-color: transparent;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  color: var(--color-text-white);
+}
+
+.package-card.is-selected .pkg-header h3,
+.package-card.is-selected .pkg-subtitle,
+.package-card.is-selected .pkg-desc,
+.package-card.is-selected .pkg-features li {
+  color: var(--color-text-white);
+}
+
+.package-card.is-selected .check-icon {
+  color: var(--color-text-white);
+}
+
+.package-card.is-selected .pkg-header {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}

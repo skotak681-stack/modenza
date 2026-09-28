@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600;700&display=swap");
+
+:root {
+  --font-primary: "Inter", sans-serif;
+  --font-heading: "Cormorant Garamond", serif;
+}
+
+.doc-page {
+  background-color: #ffffff;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* --- HERO SEKCJA --- */
+.doc-hero {
+  height: 50vh;
+  min-height: 400px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Nowe tło przekazane przez Ciebie */
+.doc-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://res.cloudinary.com/doqdbxxis/image/upload/v1782121784/glowne6_cmn9s4.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.doc-hero-zoom {
+  animation: docHeroZoomAnim 25s linear infinite alternate;
+}
+
+@keyframes docHeroZoomAnim {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.15);
+  }
+}
+
+.doc-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1;
+}
+
+.doc-hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 0 2rem;
+  max-width: 800px;
+}
+
+.doc-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.05em;
+}
+
+.doc-hero-subtitle {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  opacity: 0.9;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  font-weight: 300;
+}
+
+/* --- ANIMACJE WEJŚCIOWE --- */
+.doc-fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: docFadeInUpAnim 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+@keyframes docFadeInUpAnim {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.doc-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.doc-reveal.doc-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- GŁÓWNA TREŚĆ --- */
+.doc-content-section {
+  padding: 0 2rem 8rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.doc-container {
+  max-width: 1000px; /* Szerokość optymalna dla czytania długich bloków tekstu */
+  width: 100%;
+  margin-top: -60px;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+/* KARTA DOKUMENTACJI */
+.doc-main-card {
+  background-color: #fbfbfb;
+  border: 15px solid #000000;
+  border-radius: 12px;
+  padding: 5rem 4rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* FORMATOWANIE DUŻYCH BLOKÓW TEKSTU */
+.doc-text-block {
+  font-family: var(--font-primary);
+  font-size: 1.15rem;
+  line-height: 1.9; /* Nieco większa interlinia dla gęstego tekstu */
+  color: #333;
+  margin: 0;
+  text-align: left;
+}
+
+.doc-subheading {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 600;
+  color: #000;
+  margin: 3.5rem 0 1.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid #000;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* RESPONSYWNOŚĆ */
+@media (max-width: 768px) {
+  .doc-main-card {
+    padding: 3rem 2rem;
+    border-width: 10px;
+  }
+  .doc-text-block {
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  .doc-subheading {
+    font-size: 1.6rem;
+    margin: 2.5rem 0 1.2rem 0;
+  }
+}

@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+
+:root {
+  --font-primary: "Inter", sans-serif;
+  --font-heading: "Inter", serif !important;
+}
+
+/* --- KONTENER GŁÓWNY --- */
+.how-it-works-section {
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+
+  /* Grafitowe tło sekcji (zostawione zgodnie z prośbą) */
+  background: linear-gradient(
+    90deg,
+    rgba(20, 20, 22, 0.95) 0%,
+    rgba(35, 35, 40, 0.98) 50%,
+    rgba(20, 20, 22, 0.95) 100%
+  );
+}
+
+.color-span {
+  border-radius: 8px;
+  padding: 4px 8px;
+  color: black !important;
+}
+
+.hiw-container {
+  max-width: 1200px; /* Zapewnia odpowiednią, równą szerokość */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- NAGŁÓWEK SEKCJI --- */
+.hiw-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* "Od projektu do gotowego budynku" - MAŁE */
+.hiw-subtitle {
+  font-family: var(--font-primary);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: white;
+
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+/* "JAK TO DZIAŁA" - DUŻE (BIAŁY TYTUŁ) */
+.hiw-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ffffff !important; /* Zmiana na biały */
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.divider {
+  height: 20px;
+}
+
+.hiw-divider {
+  width: 80px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 0 auto;
+}
+
+/* --- UKŁAD KROKÓW (GRID) --- */
+.hiw-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  position: relative;
+}
+
+/* --- KARTA KROKU (RAMKA) --- */
+.hiw-step-card {
+  position: relative;
+  padding: 2.5rem;
+
+  background: linear-gradient(
+    90deg,
+    rgba(20, 20, 22, 0.95) 0%,
+    rgba(35, 35, 40, 0.98) 50%,
+    rgba(20, 20, 22, 0.95) 100%
+  );
+
+  /* Biały border */
+  border: 25px solid #a9b0b4;
+  border-radius: 16px;
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 220px;
+  text-align: center;
+}
+
+.hiw-step-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px);
+}
+
+/* Duży numer w tle (np. 01, 02) */
+.step-number-bg {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 8rem;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.04); /* Ciemny, lekko przezroczysty na jasnym tle */
+  z-index: -1;
+  transition:
+    color 0.4s ease,
+    transform 0.4s ease;
+}
+
+.hiw-step-card:hover .step-number-bg {
+  color: rgba(0, 0, 0, 0.08);
+  transform: scale(1.05);
+}
+
+/* --- TREŚĆ KROKU --- */
+.step-content {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1em;
+}
+
+/* Tytuł kroku - DUŻE (CZARNE) */
+.step-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white; /* Zmiana na czarny */
+  text-align: left;
+}
+
+/* Opis kroku - MAŁE (CZARNE/CIEMNOSZARE) */
+.step-description {
+  font-family: var(--font-primary);
+  font-size: 1.15rem;
+  text-align: left;
+  font-weight: 800;
+  line-height: 1.6;
+  padding-left: 40px;
+  color: white; /* Zmiana na ciemnoszary/czarny */
+}
+
+/* --- DEKORACJE --- */
+.hiw-step-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* --- ANIMACJE SCROLL REVEAL --- */
+.reveal-on-scroll {
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform, opacity;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.fade-in-up {
+  transform: translateY(40px);
+  transition:
+    opacity var(--transition-smooth, 0.6s ease),
+    transform var(--transition-smooth, 0.6s ease);
+}
+
+.fade-in-up.is-visible {
+  transform: translateY(0);
+}
+
+/* Klasy opóźniające */
+.delay-1 {
+  transition-delay: 0.1s;
+}
+.delay-2 {
+  transition-delay: 0.3s;
+}
+.delay-3 {
+  transition-delay: 0.5s;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+/* Zmiany wprowadzamy dopiero, gdy ekran staje się fizycznie za wąski dla oryginalnego układu */
+
+@media (max-width: 992px) {
+  .hiw-steps-grid {
+    grid-template-columns: 1fr; /* Wymuszamy 1 kolumnę by uniknąć zgniecenia kart */
+    gap: 2.5rem;
+  }
+
+  .hiw-step-card {
+    border-width: 15px; /* Zmniejszamy grubość ramki */
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .how-it-works-section {
+    padding: 3rem 1.5rem; /* Zmniejszamy ogólny padding sekcji */
+  }
+
+  .hiw-step-card {
+    padding: 16px;
+  }
+
+  .hiw-title {
+    font-size: 2rem;
+  }
+
+  .step-title {
+    font-size: 1.15em;
+  }
+
+  .step-description {
+    padding-left: 0; /* Usuwamy duże wcięcie z lewej strony, by tekst miał miejsce na telefonie */
+    font-size: 0.85rem;
+  }
+}

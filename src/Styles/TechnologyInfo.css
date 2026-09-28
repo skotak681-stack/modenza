@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+
+:root {
+  --font-primary: "Inter", sans-serif;
+  --font-heading: "Cormorant Garamond", serif;
+}
+
+/* --- GŁÓWNA SEKCJA --- */
+.tech-section {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 20, 22, 0.95) 0%,
+    rgba(35, 35, 40, 0.98) 50%,
+    rgba(20, 20, 22, 0.95) 100%
+  );
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0px;
+}
+
+.tech-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* --- KARTA (RAMKA Z "JAK TO DZIAŁA") --- */
+.tech-card {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 20, 22, 0.95) 0%,
+    rgba(35, 35, 40, 0.98) 50%,
+    rgba(20, 20, 22, 0.95) 100%
+  );
+  border: 25px solid #a9b0b4; /* Spójna ramka */
+  border-radius: 16px; /* Spójne zaokrąglenie */
+  display: flex;
+  gap: 1.5rem; /* Równe odstępy między linijkami */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease;
+}
+
+.tech-image {
+  width: 35%;
+  min-height: 350px;
+  object-fit: contain;
+  background-color: white;
+}
+
+.tech-text-content {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  padding-left: 1.5em;
+}
+
+.tech-card:hover {
+  transform: translateY(-10px);
+}
+
+/* --- 4 LINIJKI TEKSTU --- */
+.tech-line {
+  font-family: var(--font-heading); /* Czcionka tytułowa (Cormorant) */
+  font-size: 1.15rem; /* ZDECYDOWANIE POWIĘKSZONE (wcześniej 1.8rem) */
+  font-weight: 800; /* Mocne pogrubienie */
+  color: white;
+  margin: 0.31em;
+  text-align: left; /* Wyrównanie do lewej tak jak na obrazku */
+  line-height: 1.3;
+}
+
+/* --- RESPONSYWNOŚĆ --- */
+/* Pierwsze zmiany wchodzą dopiero na tabletach, by zapobiec zgnieceniu tekstu i obrazka */
+@media (max-width: 992px) {
+  .tech-card {
+    flex-direction: column; /* Przełamujemy układ na pionowy */
+  }
+
+  .tech-image {
+    width: 100%; /* Obrazek zajmuje całą szerokość karty */
+    min-height: 350px;
+  }
+
+  .tech-text-content {
+    width: 100%; /* Tekst zajmuje całą szerokość */
+    padding: 2rem; /* Zamieniamy tylko lewy padding na równy z każdej strony */
+  }
+}
+
+@media (max-width: 768px) {
+  .tech-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .tech-card {
+    border-width: 15px; /* Trochę cieńsza ramka na telefonach */
+    gap: 1.2rem;
+  }
+
+  .tech-line {
+    font-size: 1.6rem; /* Zrównoważone powiększenie (1.8 mogłoby wylecieć poza ramkę na wąskim ekranie) */
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-card {
+    border-width: 10px; /* Jeszcze cieńsza ramka na małych telefonach */
+  }
+
+  .tech-text-content {
+    padding: 1.5rem; /* Mniej pustej przestrzeni dookoła tekstu na małym ekranie */
+  }
+
+  .tech-line {
+    font-size: 1.4rem; /* Odpowiedni rozmiar na telefony */
+  }
+}
