@@ -42,7 +42,7 @@ const Footer = () => {
         <div className="footer-middle-row">
           {/* Dane kontaktowe */}
           <div className="footer-contact-links">
-            <a href="tel:+48721505600" className="contact-item">
+            <a href="tel:+48790395325" className="contact-item">
               <FaWhatsapp
                 style={{ color: "#49ca58" }}
                 className="contact-icon"
@@ -52,14 +52,14 @@ const Footer = () => {
                 <span className="contact-value">Maciej +48 790 395 325</span>
               </div>
             </a>
-<a href="tel:+48516624665" className=contact-item">
-   <FaWhatsapp
+<a href="tel:+48516624665" className="contact-item">
+  <FaWhatsapp
      style={{ color: "#49ca58" }}
      className="contact-icon"
     />
     <div className="contact-meta">
-      <span className="contact-label">zadzwoń do nas</span>
-      <span className="contact-value">Oskar: +48 516 624 665</span>
+      <span className="contact-label">Zadzwoń do nas </span>
+      <span className="contact-value">Oskar +48 516 624 665</span>
     </div>
   </a>
             <a href="mailto:biuro@modenza.com.pl" className="contact-item">
