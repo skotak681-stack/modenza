@@ -62,11 +62,11 @@ const Footer = () => {
       <span className="contact-value">Oskar +48 516 624 665</span>
     </div>
   </a>
-            <a href="mailto:biuro@modenza.com.pl" className="contact-item">
+            <a href="mailto:biuro@modenza.eu" className="contact-item">
               <FiMail style={{ color: "#4aa1f7" }} className="contact-icon" />
               <div className="contact-meta">
                 <span className="contact-label">E-mail</span>
-                <span className="contact-value">biuro@modenza.com.pl</span>
+                <span className="contact-value">biuro@modenza.eu</span>
               </div>
             </a>
             <a
