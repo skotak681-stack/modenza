@@ -26,7 +26,6 @@ const ResidenceDetails = () => {
         "https://res.cloudinary.com/doqdbxxis/image/upload/v1782123362/h40-demo2_uo3vnp.jpg",
         "https://res.cloudinary.com/doqdbxxis/image/upload/v1782123362/h40-demo3_cmaqi3.jpg",
         "https://res.cloudinary.com/doqdbxxis/image/upload/v1782123362/h40-demo5_wiqc62.jpg",
-        "https://res.cloudinary.com/lwaibp6a/image/upload/v1794086950/IMG_0987.png",
         "https://res.cloudinary.com/doqdbxxis/image/upload/v1782121797/glowne1_ijterx.jpg",
       ],
       premiumImgs: [],
@@ -126,7 +125,7 @@ const ResidenceDetails = () => {
         "https://res.cloudinary.com/doqdbxxis/image/upload/v1782126860/h120-demo_n7ilhv.jpg",
         "https://res.cloudinary.com/doqdbxxis/image/upload/v1782126861/h120demo3_sgfxkl.jpg",
         "https://res.cloudinary.com/doqdbxxis/image/upload/v1782126861/h120demo5_xoftew.jpg",
-        https://res.cloudinary.com/lwaibp6a/image/upload/v1794086950/IMG_0987.png",
+        "https://res.cloudinary.com/lwaibp6a/image/upload/v1794086950/IMG_0987.png",
         "https://res.cloudinary.com/lwaibp6a/image/upload/93e9d1b0-9b77-41cd-8f9f-16b5d49ab942.jpg"
         ],
       premiumImgs: [],
