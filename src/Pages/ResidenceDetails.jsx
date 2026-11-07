@@ -26,6 +26,7 @@ const ResidenceDetails = () => {
         "https://res.cloudinary.com/doqdbxxis/image/upload/v1782123362/h40-demo2_uo3vnp.jpg",
         "https://res.cloudinary.com/doqdbxxis/image/upload/v1782123362/h40-demo3_cmaqi3.jpg",
         "https://res.cloudinary.com/doqdbxxis/image/upload/v1782123362/h40-demo5_wiqc62.jpg",
+        "https://res.cloudinary.com/lwaibp6a/image/upload/v1794086950/IMG_0987.png",
         "https://res.cloudinary.com/doqdbxxis/image/upload/v1782121797/glowne1_ijterx.jpg",
       ],
       premiumImgs: [],
